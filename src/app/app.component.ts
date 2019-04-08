@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { COURSES } from '../data';
 
 @Component({
   selector: 'app-root',
@@ -6,15 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  data = {
-    title: '<h1>angular-course</h1><script>alert("Attack");</script>'
-  };
+  coreCourse = COURSES[0];
 
-  onLogoClick() {
-    console.log('Hello Angular!');
-  }
+  rxjsCourse = COURSES[1];
 
-  onKeyUp(title: string) {
-    this.data.title = title;
-  }
+  ngrxCourse = COURSES[2];
 }
