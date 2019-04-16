@@ -27,6 +27,21 @@
   margin-top: 10px;
 }
 
+.course-category {
+  margin-top: 15px;
+}
+
+.category {
+  margin-top: 15px;
+  background: lightcyan;
+  font-size: 14px;
+  color: grey;
+  border: 1px solid grey;
+  border-radius: 4px;
+  padding: 2px 3px;
+  display: inline;
+}
+
 button {
   margin-top: 20px;
   height: 40px;
