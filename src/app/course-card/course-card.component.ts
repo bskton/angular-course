@@ -11,9 +11,6 @@ export class CourseCardComponent implements OnInit {
   @Input()
   course: Course;
 
-  @Input()
-  cardIndex: number;
-
   @Output('courseSelected')
   courseEmmiter = new EventEmitter<Course>();
 
@@ -23,28 +20,10 @@ export class CourseCardComponent implements OnInit {
   }
 
   onViewCourse() {
-    console.log('View Course', this.course);
     this.courseEmmiter.emit(this.course);
   }
 
   isImageVisible() {
     return this.course && this.course.iconUrl;
-  }
-
-  cardClasses() {
-    if (this.course.category == 'BEGINNER') {
-      return ['beginner'];
-    }
-
-    // return {
-    //   beginner: this.course.category == 'BEGINNER'
-    // };
-  }
-
-  cardStyle() {
-    return {
-      'text-decoration': 'underline',
-      color: 'blue'
-    }
   }
 }
