@@ -20,4 +20,4 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 
 ENTRYPOINT ["entrypoint.sh"]
 
-CMD ["ng", "serve", "--host=0.0.0.0"]
+CMD ["ng", "serve", "--host=0.0.0.0", "--proxy-config", "./proxy.json"]
