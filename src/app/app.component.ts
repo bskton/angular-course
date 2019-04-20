@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from './model/course';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  courses;
+  courses$: Observable<Course[]>;
 
   constructor(private http: HttpClient) {}
 
@@ -16,12 +17,7 @@ export class AppComponent implements OnInit {
     const params = new HttpParams()
       .set('page', '1')
       .set('pageSize', '10');
-    this.http.get('/api/courses',{ params })
-      .subscribe(
-        val => {
-          this.courses = val;
-        }
-      );
+    this.courses$ = this.http.get<Course[]>('/api/courses',{ params });
   }
 
   onCourseSelected(course: Course) {
