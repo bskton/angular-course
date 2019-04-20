@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { COURSES } from '../src/data';
+import { COURSES } from './data';
 
 export function getAllCourses(req: Request, res: Response) {
   res.status(200).json(Object.keys(COURSES).map(key => COURSES[key]));

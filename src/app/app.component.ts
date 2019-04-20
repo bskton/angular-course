@@ -17,7 +17,8 @@ export class AppComponent implements OnInit {
     this.courses$ = this.coursesService.loadCourses();
   }
 
-  onCourseSelected(course: Course) {
-    console.log('Course Selected', course);
+  save(course: Course) {
+    this.coursesService.saveCourse(course)
+      .subscribe(console.log);
   }
 }

@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Course } from '../model/course';
-import { CoursesService } from '../services/courses.service';
 
 @Component({
   selector: 'app-course-card',
@@ -11,17 +10,15 @@ export class CourseCardComponent implements OnInit {
   @Input()
   course: Course;
 
-  @Output('courseSelected')
+  @Output('courseChanged')
   courseEmmiter = new EventEmitter<Course>();
 
-  constructor(private coursesService: CoursesService) { }
+  constructor() { }
 
-  ngOnInit() {
-    console.log(this.coursesService);
-  }
+  ngOnInit() {}
 
-  onViewCourse() {
-    this.courseEmmiter.emit(this.course);
+  onSaveClicked(description: string) {
+    this.courseEmmiter.emit({...this.course, description});
   }
 
   isImageVisible() {
