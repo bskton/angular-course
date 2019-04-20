@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Course } from './model/course';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CoursesService } from './services/courses.service';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +12,10 @@ import { Observable } from 'rxjs';
 export class AppComponent implements OnInit {
   courses$: Observable<Course[]>;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private coursesService: CoursesService) {}
 
   ngOnInit() {
+    console.log(this.coursesService);
     const params = new HttpParams()
       .set('page', '1')
       .set('pageSize', '10');
